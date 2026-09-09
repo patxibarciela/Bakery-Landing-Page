@@ -170,16 +170,6 @@
 
       <!-- Action Buttons & Quick Cart / Order -->
       <div class="flex items-center gap-space-sm sm:gap-space-md">
-        <!-- View Mode Switcher Pill (Alla skärmar vs Skärmvyer) -->
-        <div class="hidden xl:flex items-center bg-surface-container-low p-0.5 rounded-full text-[11px] font-label-sm border border-outline-variant/40">
-          <button id="view-mode-full" onclick="setViewMode('scroll')" class="px-2.5 py-1 rounded-full bg-surface text-primary font-semibold shadow-xs">
-            Hela Bageriet
-          </button>
-          <button id="view-mode-screen" onclick="setViewMode('tabs')" class="px-2.5 py-1 rounded-full text-on-surface-variant hover:text-on-surface">
-            Skärm för skärm
-          </button>
-        </div>
-
         <!-- Quick Cart / Pre-order button -->
         <button
           onclick="openOrderModal()"
@@ -219,10 +209,6 @@
         <a href="#brod-fika" onclick="navigateToScreen('brod-fika', event); toggleMobileMenu();" class="p-2.5 rounded hover:bg-surface-container text-on-surface">Hantverksbröd &amp; Fika</a>
         <a href="#ugnsschema" onclick="navigateToScreen('ugnsschema', event); toggleMobileMenu();" class="p-2.5 rounded hover:bg-surface-container text-on-surface">Dagens Bak (Ugnsschema)</a>
         <a href="#hitta-hit" onclick="navigateToScreen('hitta-hit', event); toggleMobileMenu();" class="p-2.5 rounded hover:bg-surface-container text-on-surface">Hitta Hit &amp; Kafé</a>
-        <div class="pt-2 border-t border-outline-variant/30 flex gap-2">
-          <button onclick="setViewMode('scroll'); toggleMobileMenu();" class="flex-1 py-1.5 text-xs rounded bg-surface-container-low text-on-surface text-center">Hela Bageriet</button>
-          <button onclick="setViewMode('tabs'); toggleMobileMenu();" class="flex-1 py-1.5 text-xs rounded bg-surface-container-low text-on-surface text-center">Skärmvyer</button>
-        </div>
       </div>
     </div>
   </header>
@@ -1057,10 +1043,9 @@
   <!-- ================= VANILLA JAVASCRIPT LOGIC ================= -->
   <script>
     // State
-    let currentViewMode = 'scroll'; // 'scroll' or 'tabs'
     let orderItems = [];
 
-    // Screen navigation
+    // Screen navigation (smooth scroll to section)
     function navigateToScreen(screenId, event) {
       if (event) event.preventDefault();
 
@@ -1072,59 +1057,14 @@
         }
       });
 
-      if (currentViewMode === 'tabs') {
-        // In tabs mode, show only the selected screen
-        document.querySelectorAll('.screen-view').forEach(screen => {
-          screen.classList.add('hidden');
-        });
-        const targetScreen = document.getElementById('screen-' + screenId);
-        if (targetScreen) {
-          targetScreen.classList.remove('hidden');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      } else {
-        // In scroll mode, smooth scroll to the target anchor
-        const targetElement = document.getElementById(screenId);
-        if (targetElement) {
-          const yOffset = -90;
-          const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-        } else if (screenId === 'hem') {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      }
-    }
-
-    // Toggle view mode between full scroll & single screen views
-    function setViewMode(mode) {
-      currentViewMode = mode;
-      const fullBtn = document.getElementById('view-mode-full');
-      const screenBtn = document.getElementById('view-mode-screen');
-
-      if (mode === 'tabs') {
-        if (fullBtn && screenBtn) {
-          fullBtn.className = 'px-2.5 py-1 rounded-full text-on-surface-variant hover:text-on-surface';
-          screenBtn.className = 'px-2.5 py-1 rounded-full bg-surface text-primary font-semibold shadow-xs';
-        }
-        // Activate current active link screen
-        const activeLink = document.querySelector('.nav-link.active');
-        const activeScreen = activeLink ? activeLink.getAttribute('data-screen') : 'hem';
-        document.querySelectorAll('.screen-view').forEach(screen => {
-          screen.classList.add('hidden');
-        });
-        const target = document.getElementById('screen-' + activeScreen);
-        if (target) target.classList.remove('hidden');
+      // Smooth scroll to the target anchor
+      const targetElement = document.getElementById(screenId);
+      if (targetElement) {
+        const yOffset = -90;
+        const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      } else if (screenId === 'hem') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        showToast('Skärmläge aktiverat: Visar en sektion i taget');
-      } else {
-        if (fullBtn && screenBtn) {
-          fullBtn.className = 'px-2.5 py-1 rounded-full bg-surface text-primary font-semibold shadow-xs';
-          screenBtn.className = 'px-2.5 py-1 rounded-full text-on-surface-variant hover:text-on-surface';
-        }
-        document.querySelectorAll('.screen-view').forEach(screen => {
-          screen.classList.remove('hidden');
-        });
-        showToast('Fullständigt läge aktiverat: Bläddra genom hela bageriet');
       }
     }
 
@@ -1182,13 +1122,9 @@
 
     // Open Pre-order from anywhere
     function openOrderModal() {
-      if (currentViewMode === 'tabs') {
-        navigateToScreen('hitta-hit');
-      } else {
-        const orderSection = document.getElementById('bestallning');
-        if (orderSection) {
-          orderSection.scrollIntoView({ behavior: 'smooth' });
-        }
+      const orderSection = document.getElementById('bestallning');
+      if (orderSection) {
+        orderSection.scrollIntoView({ behavior: 'smooth' });
       }
       setTimeout(() => {
         const nameInput = document.getElementById('kund-namn');
@@ -1272,10 +1208,8 @@
       }, 3000);
     }
 
-    // Scroll spy for navigation highlighting in scroll mode
+    // Scroll spy for navigation highlighting
     window.addEventListener('scroll', () => {
-      if (currentViewMode === 'tabs') return;
-
       const sections = [
         { id: 'screen-hem', nav: 'hem' },
         { id: 'brod-fika', nav: 'brod-fika' },
