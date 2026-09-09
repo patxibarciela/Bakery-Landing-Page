@@ -1,0 +1,6 @@
+{
+  "name": "Bageri Strömmen",
+  "description": "Ett genuint hantverksbageri och kafé vid Motala ström i Norrköping med stenugnsbakat surdegsbröd, kulturspannmål och fika.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

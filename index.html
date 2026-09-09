@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="sv" class="h-full scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bageri Strömmen — Hantverksbageri vid Motala Ström</title>
+  <meta name="description" content="Genuint surdegsbageri och kafé vid Motala ström i Norrköpings industrilandskap. Kulturspannmål, långtidsjäsning och vedugnsbakat bröd." />
+  <meta property="og:title" content="Bageri Strömmen — Hantverksbageri vid Motala Ström" />
+  <meta property="og:description" content="Genuint surdegsbageri och kafé vid Motala ström i Norrköpings industrilandskap. Kulturspannmål, långtidsjäsning och vedugnsbakat bröd." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#6f331a",
+            "on-primary": "#ffffff",
+            "primary-container": "#8c4a2f",
+            "on-primary-container": "#ffc9b5",
+            "primary-fixed": "#ffdbce",
+            "primary-fixed-dim": "#ffb599",
+            "secondary": "#845326",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#febc85",
+            "on-secondary-container": "#78491d",
+            "secondary-fixed": "#ffdcc2",
+            "secondary-fixed-dim": "#fab983",
+            "on-secondary-fixed": "#2e1500",
+            "tertiary": "#3b4739",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#535f4f",
+            "on-tertiary-container": "#cbd8c4",
+            "tertiary-fixed": "#d9e7d2",
+            "tertiary-fixed-dim": "#bdcab7",
+            "on-tertiary-fixed": "#131e12",
+            "surface": "#fff8f6",
+            "surface-dim": "#ead6d0",
+            "surface-bright": "#fff8f6",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#fff1ed",
+            "surface-container": "#ffe9e4",
+            "surface-container-high": "#f9e4de",
+            "surface-container-highest": "#f3ded9",
+            "on-surface": "#241916",
+            "on-surface-variant": "#53433d",
+            "background": "#fff8f6",
+            "on-background": "#241916",
+            "outline": "#86736c",
+            "outline-variant": "#d9c2ba"
+          },
+          fontFamily: {
+            "display": ["EB Garamond", "serif"],
+            "headline-lg": ["EB Garamond", "serif"],
+            "headline-md": ["EB Garamond", "serif"],
+            "headline-sm": ["EB Garamond", "serif"],
+            "title-md": ["Manrope", "sans-serif"],
+            "body-lg": ["Manrope", "sans-serif"],
+            "body-md": ["Manrope", "sans-serif"],
+            "body-sm": ["Manrope", "sans-serif"],
+            "label-md": ["Manrope", "sans-serif"],
+            "label-sm": ["Manrope", "sans-serif"]
+          },
+          spacing: {
+            "space-xxs": "0.25rem",
+            "space-xs": "0.5rem",
+            "space-sm": "0.75rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "space-2xl": "3rem",
+            "space-3xl": "4.5rem",
+            "space-4xl": "6rem",
+            "margin-mobile": "1.25rem",
+            "margin-tablet": "2rem",
+            "margin-desktop": "3.5rem"
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #fff8f6;
+        color: #241916;
+        font-family: 'Manrope', sans-serif;
+      }
+    }
+    
+    .font-serif-italic {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+    }
+
+    /* Custom smooth fade in */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Active navigation indicator */
+    .nav-link.active {
+      background-color: #f9e4de;
+      color: #241916;
+      font-weight: 600;
+    }
+
+    /* Screen view visibility */
+    .screen-view {
+      transition: opacity 0.25s ease-in-out;
+    }
+
+    /* Badge pulse */
+    @keyframes pulseSoft {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.15); }
+    }
+    .live-indicator {
+      animation: pulseSoft 2s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased flex flex-col min-h-screen">
+
+  <!-- ================= TOP HEADER ================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_1px_8px_rgba(0,0,0,0.03)]" id="main-header">
+    <div class="h-20 max-w-[1280px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-space-md">
+      
+      <!-- Brand Logo & Title -->
+      <a href="#hem" class="flex items-center gap-space-sm group cursor-pointer" onclick="navigateToScreen('hem', event)">
+        <img
+          alt="Bageri Strömmen Logo"
+          class="h-9 w-auto object-contain transition-transform group-hover:scale-105"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2ljZLo_7RJxEBzqcgqSTXT9Y851BqbKluAiSRQ7pK7m-Vang-0VdAaM5ZFGrHLnYov9-ZIfIR48fF6-DnfOe0AsqLyxBN-ivDTarV8x2rcwjf4B8hAxOxjtn0gghpBKSfl1wh5DrZ_Mb6jPu2o6rFd7fySJ3tBaKmSdwA2obuRNfQ5HimRflmM64PxkeIyX4WMsZolsAZ0HIZjc9RmiUvGaG_MCUYG3KlBqe6eYmU7GcI1MQypOOzaQ"
+        />
+        <span class="font-headline-sm text-[24px] text-primary tracking-tight font-medium font-display">Bageri Strömmen</span>
+      </a>
+
+      <!-- Desktop Screen Navigation Tabs -->
+      <nav class="hidden lg:flex items-center gap-1.5" id="desktop-nav">
+        <a href="#hem" data-screen="hem" onclick="navigateToScreen('hem', event)" class="nav-link active px-space-sm py-space-xs rounded-md text-on-surface hover:text-on-surface hover:bg-surface-container transition-colors font-label-md text-[13px] uppercase tracking-wider">
+          Vårt Bageri
+        </a>
+        <a href="#brod-fika" data-screen="brod-fika" onclick="navigateToScreen('brod-fika', event)" class="nav-link px-space-sm py-space-xs rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-label-md text-[13px] uppercase tracking-wider">
+          Hantverksbröd &amp; Fika
+        </a>
+        <a href="#ugnsschema" data-screen="ugnsschema" onclick="navigateToScreen('ugnsschema', event)" class="nav-link px-space-sm py-space-xs rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-label-md text-[13px] uppercase tracking-wider">
+          Dagens Bak
+        </a>
+        <a href="#hitta-hit" data-screen="hitta-hit" onclick="navigateToScreen('hitta-hit', event)" class="nav-link px-space-sm py-space-xs rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-label-md text-[13px] uppercase tracking-wider">
+          Hitta Hit
+        </a>
+      </nav>
+
+      <!-- Action Buttons & Quick Cart / Order -->
+      <div class="flex items-center gap-space-sm sm:gap-space-md">
+        <!-- View Mode Switcher Pill (Alla skärmar vs Skärmvyer) -->
+        <div class="hidden xl:flex items-center bg-surface-container-low p-0.5 rounded-full text-[11px] font-label-sm border border-outline-variant/40">
+          <button id="view-mode-full" onclick="setViewMode('scroll')" class="px-2.5 py-1 rounded-full bg-surface text-primary font-semibold shadow-xs">
+            Hela Bageriet
+          </button>
+          <button id="view-mode-screen" onclick="setViewMode('tabs')" class="px-2.5 py-1 rounded-full text-on-surface-variant hover:text-on-surface">
+            Skärm för skärm
+          </button>
+        </div>
+
+        <!-- Quick Cart / Pre-order button -->
+        <button
+          onclick="openOrderModal()"
+          class="inline-flex items-center justify-center px-space-md py-space-xs bg-primary hover:bg-primary-container text-on-primary font-label-md text-[13px] uppercase tracking-wider rounded transition-colors duration-200 shadow-xs cursor-pointer"
+        >
+          <span class="material-symbols-outlined text-[17px] mr-1.5">shopping_bag</span>
+          <span>Beställ Bröd</span>
+          <span id="order-count-badge" class="hidden ml-1.5 bg-secondary-fixed text-on-secondary-fixed font-bold text-[10px] px-1.5 py-0.2 rounded-full">0</span>
+        </button>
+
+        <!-- Baker Profile / Info icon -->
+        <button
+          onclick="showBakerInfoModal()"
+          title="Om mästerbagaren & kulturarvet"
+          aria-label="Om bagaren"
+          class="w-9 h-9 rounded-full bg-primary/10 hover:bg-primary/20 text-primary flex items-center justify-center transition-colors cursor-pointer"
+        >
+          <span class="material-symbols-outlined text-[19px]">person</span>
+        </button>
+
+        <!-- Mobile Menu Hamburger -->
+        <button
+          onclick="toggleMobileMenu()"
+          aria-label="Öppna meny"
+          class="lg:hidden p-2 rounded text-on-surface hover:bg-surface-container transition-colors"
+        >
+          <span class="material-symbols-outlined text-[26px]">menu</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Slide-Down Drawer -->
+    <div id="mobile-drawer" class="hidden lg:hidden bg-surface border-b border-outline-variant/30 px-margin-mobile py-space-md shadow-lg animate-fade-in">
+      <div class="flex flex-col gap-1 text-[14px] font-label-md">
+        <a href="#hem" onclick="navigateToScreen('hem', event); toggleMobileMenu();" class="p-2.5 rounded hover:bg-surface-container text-on-surface">Vårt Bageri</a>
+        <a href="#brod-fika" onclick="navigateToScreen('brod-fika', event); toggleMobileMenu();" class="p-2.5 rounded hover:bg-surface-container text-on-surface">Hantverksbröd &amp; Fika</a>
+        <a href="#ugnsschema" onclick="navigateToScreen('ugnsschema', event); toggleMobileMenu();" class="p-2.5 rounded hover:bg-surface-container text-on-surface">Dagens Bak (Ugnsschema)</a>
+        <a href="#hitta-hit" onclick="navigateToScreen('hitta-hit', event); toggleMobileMenu();" class="p-2.5 rounded hover:bg-surface-container text-on-surface">Hitta Hit &amp; Kafé</a>
+        <div class="pt-2 border-t border-outline-variant/30 flex gap-2">
+          <button onclick="setViewMode('scroll'); toggleMobileMenu();" class="flex-1 py-1.5 text-xs rounded bg-surface-container-low text-on-surface text-center">Hela Bageriet</button>
+          <button onclick="setViewMode('tabs'); toggleMobileMenu();" class="flex-1 py-1.5 text-xs rounded bg-surface-container-low text-on-surface text-center">Skärmvyer</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN APP WRAPPER ================= -->
+  <main class="w-full pt-20 bg-background flex-1">
+
+    <!-- ATMOSPHERIC LIVE BREAD ANNOUNCEMENT RIBBON -->
+    <aside aria-label="Aktuell ugnskörning" class="w-full bg-secondary text-on-secondary px-margin-mobile md:px-margin-tablet lg:px-margin-desktop py-space-xs flex items-center justify-between transition-colors shadow-inner">
+      <div class="max-w-[1280px] mx-auto w-full flex items-center justify-between text-[13px] font-body-sm">
+        <div class="flex items-center gap-space-xs">
+          <span class="inline-flex h-2 w-2 rounded-full bg-secondary-fixed live-indicator"></span>
+          <span class="font-label-sm text-[11px] uppercase tracking-wider text-secondary-fixed font-bold">Direkt från ugnen just nu:</span>
+          <span id="live-ribbon-text" class="hidden sm:inline text-on-secondary/95">Kardemummabullar och Strömmen Levain (36 timmars kalljäsning)</span>
+        </div>
+        <div class="flex items-center gap-space-sm font-label-md text-[12px]">
+          <span class="hidden md:inline text-on-secondary/80">Tis–Sön från 07:00</span>
+          <a href="#ugnsschema" onclick="navigateToScreen('ugnsschema', event)" class="underline underline-offset-4 hover:text-secondary-fixed transition-colors font-medium">
+            Se bakschema
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ================= SCREEN 1: VÅRT BAGERI (HERO & PHILOSOPHY) ================= -->
+    <div id="screen-hem" class="screen-view w-full">
+      
+      <!-- Hero Section with Heritage Imagery -->
+      <section class="relative w-full overflow-hidden bg-surface pt-space-xl pb-space-3xl px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+        <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+          
+          <!-- Left Narrative Column -->
+          <div class="lg:col-span-6 flex flex-col items-start gap-space-md z-10">
+            <div class="inline-flex items-center gap-space-xs px-space-sm py-space-xxs rounded-full bg-surface-container-high text-primary font-label-sm text-[11px] uppercase tracking-widest font-semibold">
+              <span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+              <span>Kulturspannmål • Gamla Staden, Norrköping</span>
+            </div>
+
+            <h1 class="font-headline-lg text-[38px] md:text-[48px] lg:text-[52px] text-on-surface font-normal leading-[1.12] tracking-tight font-display">
+              Långsamt bakat med <span class="font-serif-italic text-primary">surdeg &amp; kärlek</span> vid Motala ström.
+            </h1>
+
+            <p class="font-body-lg text-[17px] md:text-[18px] text-on-surface-variant max-w-xl leading-relaxed">
+              Vi maler ekologiskt kultursäd från Östgötaslätten på stenkvarn, ger degarna 36 timmars stillsam vila och gräddar i eldad stenugn varje gryning.
+            </p>
+
+            <!-- Quality Badges -->
+            <div class="grid grid-cols-3 gap-space-sm w-full pt-space-xs pb-space-xs">
+              <div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-1 border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                <span class="font-title-md text-[20px] text-primary font-semibold">100%</span>
+                <span class="font-body-sm text-[13px] text-on-surface-variant leading-tight">Östgötskt kulturspannmål</span>
+              </div>
+              <div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-1 border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                <span class="font-title-md text-[20px] text-primary font-semibold">36h</span>
+                <span class="font-body-sm text-[13px] text-on-surface-variant leading-tight">Lång kalltidsjäsning</span>
+              </div>
+              <div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-1 border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                <span class="font-title-md text-[20px] text-primary font-semibold">07:00</span>
+                <span class="font-body-sm text-[13px] text-on-surface-variant leading-tight">Varma bullar varje morgon</span>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+              <a
+                href="#brod-fika"
+                onclick="navigateToScreen('brod-fika', event)"
+                class="px-space-lg py-space-sm bg-primary hover:bg-primary-container text-on-primary font-label-md text-[13px] uppercase tracking-wider rounded transition-all shadow-md hover:shadow-lg flex items-center gap-space-xs cursor-pointer"
+              >
+                <span>Se Dagens Bröd &amp; Fika</span>
+                <span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+              </a>
+              <a
+                href="#hitta-hit"
+                onclick="navigateToScreen('hitta-hit', event)"
+                class="px-space-lg py-space-sm bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-[13px] uppercase tracking-wider rounded transition-colors flex items-center gap-space-xs cursor-pointer"
+              >
+                <span class="material-symbols-outlined text-[18px] text-primary">pin_drop</span>
+                <span>Hitta till Kvarnen</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Visual Feature (Bakery Atmosphere) -->
+          <div class="lg:col-span-6 relative">
+            <div class="relative rounded-xl overflow-hidden shadow-xl aspect-[4/3] w-full bg-surface-container-highest border border-outline-variant/30">
+              <img
+                alt="Bageri Strömmen rustika trähyllor med nygräddade surdegsbröd och kardemummabullar i stenugnsmiljö vid Motala ström"
+                class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700 ease-out"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYRKVL-3gL0VB02BIUhdedEJb5LGmaofgRNKJWZgkwxY_BA2ykaBEsTWebzy7E5cRH8T-dabAIP0tYJweNgyvHf-tW2LM6SEq_dm8-k0KpNguCcUUlBt5POC7PSbM8rUDRkgHeirn4XcxVk5w5EAxh4owKgMmWkftAFegfww1iq4XqUnstG7vxuCvZKYSSJTkRxnU_pV6hzNbm7rsikbf1jkWzvA6OL-Qi2cli8EEC1H48ugxo_Si5TA"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent"></div>
+              
+              <!-- Floating Hot Bread Indicator -->
+              <div class="absolute bottom-4 left-4 right-4 bg-surface/90 backdrop-blur-md p-space-sm rounded-lg flex items-center justify-between text-on-surface shadow-sm border border-outline-variant/30">
+                <div class="flex items-center gap-space-sm">
+                  <div class="h-10 w-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold">
+                    <span class="material-symbols-outlined text-[22px]">outdoor_grill</span>
+                  </div>
+                  <div>
+                    <p class="font-title-md text-[16px] text-on-surface leading-tight font-semibold">Morgonens Hällbak</p>
+                    <p class="font-body-sm text-[12px] text-on-surface-variant">Vedeldad häll • Gräddat kl 06:15</p>
+                  </div>
+                </div>
+                <span class="px-space-xs py-space-xxs rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-bold uppercase tracking-wider">Nybakat</span>
+              </div>
+            </div>
+
+            <!-- Decorative Accent Quote -->
+            <div class="hidden sm:block absolute -top-4 -right-4 bg-surface-container-low p-space-sm rounded shadow-md max-w-[210px] transform rotate-1 border border-outline-variant/30">
+              <p class="font-headline-sm text-[18px] italic text-primary leading-tight text-center font-display">”Ett mjöligt paradis vid forsens brus.”</p>
+              <span class="font-label-sm text-[11px] text-center block text-outline pt-1">— Norrköpings Tidningar</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Filosofi & Hantverket Section -->
+      <section class="w-full bg-surface-container-low py-space-3xl px-margin-mobile md:px-margin-tablet lg:px-margin-desktop border-t border-outline-variant/20">
+        <div class="max-w-[1280px] mx-auto flex flex-col gap-space-2xl">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+            <div class="max-w-2xl">
+              <span class="font-label-md text-[12px] uppercase tracking-widest text-secondary block font-semibold">Vår Filosofi &amp; Hantverket</span>
+              <h2 class="font-headline-lg text-[32px] md:text-[40px] text-on-surface mt-space-xxs font-display font-medium">Ett bageri förankrat i jord, vatten och tålamod.</h2>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+              Vi fuskar aldrig med jäst eller industriella mixer. Hos oss tar ett gott levainbröd minst två dygn att förädla från sädeskorn till frasig skorpa.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+            <!-- Card 1 -->
+            <div class="bg-surface p-space-xl rounded-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow border border-outline-variant/20">
+              <div>
+                <div class="w-12 h-12 rounded bg-surface-container-high flex items-center justify-center text-primary mb-space-md">
+                  <span class="material-symbols-outlined text-[28px]">grain</span>
+                </div>
+                <h3 class="font-headline-sm text-[22px] text-on-surface mb-space-xs font-display font-semibold">Kulturspannmål &amp; Mjöl</h3>
+                <p class="font-body-md text-[14px] leading-relaxed text-on-surface-variant">
+                  Vi använder gamla spannmålssorter som Ölandsvete, Svedjeråg och Emmer från Källmans och lokala östgötska ekogårdar. Malet nära bakbordet för att bevara mineraler, groddar och mustig smak.
+                </p>
+              </div>
+              <div class="mt-space-md pt-space-sm flex items-center gap-space-xs font-label-md text-[12px] text-secondary font-semibold">
+                <span class="material-symbols-outlined text-[18px]">verified</span>
+                <span>Östgötsk ursprungsmärkning</span>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-surface p-space-xl rounded-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow border border-outline-variant/20">
+              <div>
+                <div class="w-12 h-12 rounded bg-surface-container-high flex items-center justify-center text-primary mb-space-md">
+                  <span class="material-symbols-outlined text-[28px]">hourglass_bottom</span>
+                </div>
+                <h3 class="font-headline-sm text-[22px] text-on-surface mb-space-xs font-display font-semibold">Tid &amp; Surdegskultur</h3>
+                <p class="font-body-md text-[14px] leading-relaxed text-on-surface-variant">
+                  Vår surdegsmoder matas varje morgon och kväll. Degarna vilar i kylrum mellan 36 och 48 timmar. Den långsamma fermenteringen bryter ner fytinsyra och gluten, vilket gör brödet snällt för magen.
+                </p>
+              </div>
+              <div class="mt-space-md pt-space-sm flex items-center gap-space-xs font-label-md text-[12px] text-secondary font-semibold">
+                <span class="material-symbols-outlined text-[18px]">eco</span>
+                <span>100% biologisk jäsning</span>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-surface p-space-xl rounded-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow border border-outline-variant/20">
+              <div>
+                <div class="w-12 h-12 rounded bg-surface-container-high flex items-center justify-center text-primary mb-space-md">
+                  <span class="material-symbols-outlined text-[28px]">fireplace</span>
+                </div>
+                <h3 class="font-headline-sm text-[22px] text-on-surface mb-space-xs font-display font-semibold">Vedeldat Stenugnsbakat</h3>
+                <p class="font-body-md text-[14px] leading-relaxed text-on-surface-variant">
+                  Vår massiva däckugn med tjocka eldfasta stenhällar ger brödet dess karaktäristiska blåsiga och knäckiga skorpa. En lätt karamellisering som binder fukten och ger en saftig, seg inkråm.
+                </p>
+              </div>
+              <div class="mt-space-md pt-space-sm flex items-center gap-space-xs font-label-md text-[12px] text-secondary font-semibold">
+                <span class="material-symbols-outlined text-[18px]">local_fire_department</span>
+                <span>260°C direkt mot stenhäll</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ================= SCREEN 2: HANTVERKSBRÖD & FIKA (MENU SHOWCASE) ================= -->
+    <div id="screen-brod-fika" class="screen-view w-full">
+      <section class="w-full bg-surface py-space-3xl px-margin-mobile md:px-margin-tablet lg:px-margin-desktop border-t border-outline-variant/20" id="brod-fika">
+        <div class="max-w-[1280px] mx-auto flex flex-col gap-space-2xl">
+          
+          <div class="flex flex-col items-center text-center max-w-2xl mx-auto">
+            <span class="font-label-md text-[12px] uppercase tracking-widest text-secondary font-semibold">Från Vårt Bakbord</span>
+            <h2 class="font-headline-lg text-[34px] md:text-[42px] text-on-surface mt-space-xxs font-display font-medium">Signaturbröd &amp; Äkta Fika</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+              Här är ett urval av vad vi bakar färskt varje dag. Sortimentet varierar lätt efter säsongens råvaror och bagarens humör.
+            </p>
+
+            <!-- Category Filter Pills -->
+            <div class="flex flex-wrap justify-center gap-2 mt-space-md">
+              <button onclick="filterBakeryMenu('all', this)" class="menu-filter-btn px-4 py-1.5 rounded-full text-[12px] font-label-md font-semibold bg-primary text-on-primary transition-colors cursor-pointer">
+                Alla bakverk (6)
+              </button>
+              <button onclick="filterBakeryMenu('matbrod', this)" class="menu-filter-btn px-4 py-1.5 rounded-full text-[12px] font-label-md font-medium bg-surface-container-low hover:bg-surface-container text-on-surface transition-colors cursor-pointer">
+                Matbröd &amp; Levain
+              </button>
+              <button onclick="filterBakeryMenu('fika', this)" class="menu-filter-btn px-4 py-1.5 rounded-full text-[12px] font-label-md font-medium bg-surface-container-low hover:bg-surface-container text-on-surface transition-colors cursor-pointer">
+                Bullar &amp; Fika
+              </button>
+              <button onclick="filterBakeryMenu('frukost', this)" class="menu-filter-btn px-4 py-1.5 rounded-full text-[12px] font-label-md font-medium bg-surface-container-low hover:bg-surface-container text-on-surface transition-colors cursor-pointer">
+                Frukostpaket
+              </button>
+            </div>
+          </div>
+
+          <!-- Menu Categories Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg" id="products-grid">
+            
+            <!-- Item 1: Strömmen Levain -->
+            <article data-category="matbrod" class="menu-card bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group border border-outline-variant/20 hover:border-primary/40">
+              <div class="space-y-space-xs">
+                <div class="flex items-baseline justify-between gap-space-sm">
+                  <h3 class="font-headline-sm text-[22px] text-on-surface group-hover:text-primary transition-colors font-display font-semibold">Strömmen Levain</h3>
+                  <span class="font-title-md text-[18px] font-semibold text-primary">68 kr</span>
+                </div>
+                <p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">
+                  Vårt stolta flaggskeppsbröd. Ljust surdegsbröd bakat på stenmalet Ölandsvete och siktat dinkel. Vänd i rostad oskalad sesam och havssalt.
+                </p>
+              </div>
+              <div class="mt-space-md pt-space-xs flex items-center justify-between border-t border-outline-variant/20">
+                <div class="flex items-center gap-space-xxs flex-wrap">
+                  <span class="px-space-xs py-space-xxs rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[11px]">Vegansk</span>
+                  <span class="px-space-xs py-space-xxs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px]">Ölandsvete</span>
+                  <span class="font-label-sm text-[11px] text-outline ml-1">Ca 850g</span>
+                </div>
+                <button
+                  onclick="addToHelgOrder('Strömmen Levain', 68)"
+                  title="Lägg till i helgbeställning"
+                  class="p-1.5 rounded-full bg-surface-container hover:bg-primary hover:text-white text-primary transition-colors cursor-pointer flex items-center justify-center"
+                >
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Item 2: Norrköpings Råg -->
+            <article data-category="matbrod" class="menu-card bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group border border-outline-variant/20 hover:border-primary/40">
+              <div class="space-y-space-xs">
+                <div class="flex items-baseline justify-between gap-space-sm">
+                  <h3 class="font-headline-sm text-[22px] text-on-surface group-hover:text-primary transition-colors font-display font-semibold">Norrköpings Råg</h3>
+                  <span class="font-title-md text-[18px] font-semibold text-primary">62 kr</span>
+                </div>
+                <p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">
+                  Djupt, fylligt rågbröd på skållad svedjeråg från trakten, rostad kummin och en aning mörk malt. Saftigt i över en vecka.
+                </p>
+              </div>
+              <div class="mt-space-md pt-space-xs flex items-center justify-between border-t border-outline-variant/20">
+                <div class="flex items-center gap-space-xxs flex-wrap">
+                  <span class="px-space-xs py-space-xxs rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[11px]">Lång hållbarhet</span>
+                  <span class="px-space-xs py-space-xxs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px]">Svedjeråg</span>
+                  <span class="font-label-sm text-[11px] text-outline ml-1">Ca 900g</span>
+                </div>
+                <button
+                  onclick="addToHelgOrder('Norrköpings Råg', 62)"
+                  title="Lägg till i helgbeställning"
+                  class="p-1.5 rounded-full bg-surface-container hover:bg-primary hover:text-white text-primary transition-colors cursor-pointer flex items-center justify-center"
+                >
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Item 3: Valnöt & Sommarhonung -->
+            <article data-category="matbrod" class="menu-card bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group border border-outline-variant/20 hover:border-primary/40">
+              <div class="space-y-space-xs">
+                <div class="flex items-baseline justify-between gap-space-sm">
+                  <h3 class="font-headline-sm text-[22px] text-on-surface group-hover:text-primary transition-colors font-display font-semibold">Valnöt &amp; Sommarhonung</h3>
+                  <span class="font-title-md text-[18px] font-semibold text-primary">75 kr</span>
+                </div>
+                <p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">
+                  Kalljäst rustikt lantbröd mättat med lättrostade valnötter och en aning lokal sommarhonung från Vikbolandet. Perfekt till ostar.
+                </p>
+              </div>
+              <div class="mt-space-md pt-space-xs flex items-center justify-between border-t border-outline-variant/20">
+                <div class="flex items-center gap-space-xxs flex-wrap">
+                  <span class="px-space-xs py-space-xxs rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[11px]">Ostfavorit</span>
+                  <span class="font-label-sm text-[11px] text-outline ml-1">Ca 800g</span>
+                </div>
+                <button
+                  onclick="addToHelgOrder('Valnöt & Sommarhonung', 75)"
+                  title="Lägg till i helgbeställning"
+                  class="p-1.5 rounded-full bg-surface-container hover:bg-primary hover:text-white text-primary transition-colors cursor-pointer flex items-center justify-center"
+                >
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Item 4: Kardemummabulle -->
+            <article data-category="fika" class="menu-card bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group border border-outline-variant/20 hover:border-primary/40">
+              <div class="space-y-space-xs">
+                <div class="flex items-baseline justify-between gap-space-sm">
+                  <h3 class="font-headline-sm text-[22px] text-on-surface group-hover:text-primary transition-colors font-display font-semibold">Kardemummabulle</h3>
+                  <span class="font-title-md text-[18px] font-semibold text-primary">38 kr</span>
+                </div>
+                <p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">
+                  Knutad med kärlek. Bakad på ekologiskt smör, surdeg och generöst med nystött hel grön kardemumma samt ljust rårörsocker.
+                </p>
+              </div>
+              <div class="mt-space-md pt-space-xs flex items-center justify-between border-t border-outline-variant/20">
+                <div class="flex items-center gap-space-xxs flex-wrap">
+                  <span class="px-space-xs py-space-xxs rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[11px]">Signaturfika</span>
+                  <span class="px-space-xs py-space-xxs rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[11px]">Ekologiskt smör</span>
+                  <span class="font-label-sm text-[11px] text-outline ml-1">Varje dag</span>
+                </div>
+                <button
+                  onclick="addToHelgOrder('Kardemummabulle', 38)"
+                  title="Lägg till i helgbeställning"
+                  class="p-1.5 rounded-full bg-surface-container hover:bg-primary hover:text-white text-primary transition-colors cursor-pointer flex items-center justify-center"
+                >
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Item 5: Kanelbulle med Mandelmassa -->
+            <article data-category="fika" class="menu-card bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group border border-outline-variant/20 hover:border-primary/40">
+              <div class="space-y-space-xs">
+                <div class="flex items-baseline justify-between gap-space-sm">
+                  <h3 class="font-headline-sm text-[22px] text-on-surface group-hover:text-primary transition-colors font-display font-semibold">Kanelbulle med Mandel</h3>
+                  <span class="font-title-md text-[18px] font-semibold text-primary">36 kr</span>
+                </div>
+                <p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">
+                  En saftig kaneldröm fylld med vår egen stenmalda mandelmassa, ceylonkanel och toppad med rostade mandelspån &amp; pärlsocker.
+                </p>
+              </div>
+              <div class="mt-space-md pt-space-xs flex items-center justify-between border-t border-outline-variant/20">
+                <div class="flex items-center gap-space-xxs flex-wrap">
+                  <span class="px-space-xs py-space-xxs rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[11px]">Klassiker</span>
+                  <span class="font-label-sm text-[11px] text-outline ml-1">Varje dag</span>
+                </div>
+                <button
+                  onclick="addToHelgOrder('Kanelbulle med Mandel', 36)"
+                  title="Lägg till i helgbeställning"
+                  class="p-1.5 rounded-full bg-surface-container hover:bg-primary hover:text-white text-primary transition-colors cursor-pointer flex items-center justify-center"
+                >
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Item 6: Morgonfralla & Handrostat Kaffe -->
+            <article data-category="frukost" class="menu-card bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group border border-outline-variant/20 hover:border-primary/40">
+              <div class="space-y-space-xs">
+                <div class="flex items-baseline justify-between gap-space-sm">
+                  <h3 class="font-headline-sm text-[22px] text-on-surface group-hover:text-primary transition-colors font-display font-semibold">Morgonfralla &amp; Kaffe</h3>
+                  <span class="font-title-md text-[18px] font-semibold text-primary">65 kr</span>
+                </div>
+                <p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">
+                  Rykande färsk surdegsfralla med lagrad svensk Prästost, säsongens grönt och en kopp nybryggt kaffe från Norrköpings lokala rosteri.
+                </p>
+              </div>
+              <div class="mt-space-md pt-space-xs flex items-center justify-between border-t border-outline-variant/20">
+                <div class="flex items-center gap-space-xxs flex-wrap">
+                  <span class="px-space-xs py-space-xxs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px]">Serveras 07–11</span>
+                  <span class="font-label-sm text-[11px] text-outline ml-1">Frukostpaket</span>
+                </div>
+                <button
+                  onclick="addToHelgOrder('Morgonfralla & Kaffe', 65)"
+                  title="Lägg till i helgbeställning"
+                  class="p-1.5 rounded-full bg-surface-container hover:bg-primary hover:text-white text-primary transition-colors cursor-pointer flex items-center justify-center"
+                >
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                </button>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Additional Bakery Note -->
+          <div class="bg-surface-container-high p-space-md rounded-lg flex flex-col md:flex-row items-center justify-between gap-space-md border border-outline-variant/30">
+            <div class="flex items-center gap-space-sm">
+              <span class="material-symbols-outlined text-primary text-[28px]">info</span>
+              <p class="font-body-md text-[14px] md:text-[15px] text-on-surface">
+                Har du allergier eller frågor om gluten och laktos? Vårt team guidar dig gärna till rätt bröd.
+              </p>
+            </div>
+            <a
+              href="#bestallning"
+              onclick="navigateToScreen('hitta-hit', event); setTimeout(() => { const el = document.getElementById('kund-namn'); if(el) el.focus(); }, 300);"
+              class="px-space-md py-space-xs bg-surface-container-lowest hover:bg-surface text-on-surface font-label-md text-[12px] uppercase tracking-wider rounded transition-colors whitespace-nowrap shadow-xs cursor-pointer border border-outline-variant/30"
+            >
+              Förboka till helgen
+            </a>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= SCREEN 3: DAGENS BAK & UGNSSCHEMA ================= -->
+    <div id="screen-ugnsschema" class="screen-view w-full">
+      <section class="w-full bg-surface-container-low py-space-3xl px-margin-mobile md:px-margin-tablet lg:px-margin-desktop border-t border-outline-variant/20" id="ugnsschema">
+        <div class="max-w-[1280px] mx-auto flex flex-col gap-space-xl">
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 max-w-full">
+            <div class="max-w-2xl">
+              <span class="font-label-md text-[12px] uppercase tracking-widest text-secondary font-semibold">Ugnens Rytm</span>
+              <h2 class="font-headline-lg text-[34px] md:text-[42px] text-on-surface mt-space-xxs font-display font-medium">När kommer brödet ur ugnen?</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+                Varje klockslag har sin särskilda doft på bageriet. Kom gärna in precis när din favorit lyfts från hällen.
+              </p>
+            </div>
+
+            <!-- Live Status Clock Indicator -->
+            <div class="bg-surface px-4 py-2 rounded-lg border border-outline-variant/30 shadow-xs flex items-center gap-3">
+              <div class="h-3 w-3 rounded-full bg-secondary-fixed animate-ping"></div>
+              <div class="text-xs">
+                <span class="text-outline uppercase tracking-wider block text-[10px] font-bold">Stenugnen just nu</span>
+                <span id="current-bake-indicator" class="font-semibold text-primary">10:00 Kardemummabullar i ugnen</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+            
+            <!-- Slot 1 -->
+            <div class="oven-slot p-space-lg bg-surface rounded-lg shadow-sm flex flex-col justify-between relative overflow-hidden border border-outline-variant/20 hover:border-secondary transition-all">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
+              <div>
+                <div class="flex items-baseline justify-between mb-space-xs">
+                  <span class="font-display text-[32px] leading-none font-medium text-primary">07:00</span>
+                  <span class="font-label-sm text-[11px] uppercase px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-bold">Första omgången</span>
+                </div>
+                <h3 class="font-title-md text-[17px] text-on-surface font-semibold mb-space-xxs">Morgonfrallor &amp; Croissanter</h3>
+                <p class="font-body-sm text-[13px] text-on-surface-variant leading-relaxed">
+                  Frasiga surdegsfrallor, vallmofrallor och smörbakade croissanter redo för morgonpendlaren.
+                </p>
+              </div>
+              <span class="font-label-sm text-[11px] text-outline mt-space-md">Klar till öppning</span>
+            </div>
+
+            <!-- Slot 2 -->
+            <div class="oven-slot p-space-lg bg-surface rounded-lg shadow-sm flex flex-col justify-between relative overflow-hidden border border-outline-variant/20 hover:border-primary transition-all">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+              <div>
+                <div class="flex items-baseline justify-between mb-space-xs">
+                  <span class="font-display text-[32px] leading-none font-medium text-primary">08:30</span>
+                  <span class="font-label-sm text-[11px] uppercase px-2 py-0.5 rounded bg-surface-container-high text-primary font-bold">Huvudbaket</span>
+                </div>
+                <h3 class="font-title-md text-[17px] text-on-surface font-semibold mb-space-xxs">Stora Matbröd &amp; Levain</h3>
+                <p class="font-body-sm text-[13px] text-on-surface-variant leading-relaxed">
+                  Strömmen Levain, Norrköpings Råg och Dinkelformbröd lyfts ut med brödspaden.
+                </p>
+              </div>
+              <span class="font-label-sm text-[11px] text-outline mt-space-md">Perfekt för lunchinköpet</span>
+            </div>
+
+            <!-- Slot 3 -->
+            <div class="oven-slot p-space-lg bg-surface rounded-lg shadow-sm flex flex-col justify-between relative overflow-hidden border border-outline-variant/20 hover:border-secondary-container transition-all">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-secondary-container"></div>
+              <div>
+                <div class="flex items-baseline justify-between mb-space-xs">
+                  <span class="font-display text-[32px] leading-none font-medium text-primary">10:00</span>
+                  <span class="font-label-sm text-[11px] uppercase px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-bold">Fikadoft</span>
+                </div>
+                <h3 class="font-title-md text-[17px] text-on-surface font-semibold mb-space-xxs">Kardemumma &amp; Kanelbullar</h3>
+                <p class="font-body-sm text-[13px] text-on-surface-variant leading-relaxed">
+                  Varm sockrad kardemumma fyller lokalen. Ät dem gärna medan de fortfarande ångar.
+                </p>
+              </div>
+              <span class="font-label-sm text-[11px] text-outline mt-space-md">Dagens mest populära stund</span>
+            </div>
+
+            <!-- Slot 4 -->
+            <div class="oven-slot p-space-lg bg-surface rounded-lg shadow-sm flex flex-col justify-between relative overflow-hidden border border-outline-variant/20 hover:border-tertiary transition-all">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-tertiary"></div>
+              <div>
+                <div class="flex items-baseline justify-between mb-space-xs">
+                  <span class="font-display text-[32px] leading-none font-medium text-primary">11:30</span>
+                  <span class="font-label-sm text-[11px] uppercase px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-bold">Lunchdags</span>
+                </div>
+                <h3 class="font-title-md text-[17px] text-on-surface font-semibold mb-space-xxs">Surdegspizza &amp; Smörrebröd</h3>
+                <p class="font-body-sm text-[13px] text-on-surface-variant leading-relaxed">
+                  Surdegspizza i bit med säsongens rotfrukter samt danska rågsmörrebröd med lokal topping.
+                </p>
+              </div>
+              <span class="font-label-sm text-[11px] text-outline mt-space-md">Serveras till 14:00</span>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= SCREEN 4: HITTA HIT & BESTÄLLNING ================= -->
+    <div id="screen-hitta-hit" class="screen-view w-full">
+      <section class="w-full bg-surface py-space-3xl px-margin-mobile md:px-margin-tablet lg:px-margin-desktop border-t border-outline-variant/20" id="hitta-hit">
+        <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-2xl">
+          
+          <!-- Left Column: Besöksinfo & Kaffekultur -->
+          <div class="lg:col-span-7 flex flex-col gap-space-lg">
+            <div>
+              <span class="font-label-md text-[12px] uppercase tracking-widest text-secondary font-semibold">Välkommen Till Forsen</span>
+              <h2 class="font-headline-lg text-[34px] md:text-[42px] text-on-surface mt-space-xxs font-display font-medium">Hitta Hit &amp; Kaféliv vid Strömmen</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
+                Vårt bageri ligger i ett varsamt restaurerat tegelmagasin mitt i Norrköpings historiska industrilandskap. Under sommarhalvåret sitter du på trädäcket direkt vid det forsande vattnet.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+              <!-- Card: Adress & Kontakt -->
+              <div class="p-space-lg bg-surface-container-low rounded-lg flex flex-col justify-between border border-outline-variant/20">
+                <div class="space-y-space-xs">
+                  <div class="flex items-center gap-space-xs text-primary">
+                    <span class="material-symbols-outlined">location_on</span>
+                    <span class="font-title-md text-[17px] font-semibold text-on-surface">Bageriet</span>
+                  </div>
+                  <p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">
+                    Västgötegatan 14<br />
+                    Industrilandskapet<br />
+                    602 21 Norrköping
+                  </p>
+                  <p class="font-body-sm text-[12px] text-outline pt-space-xxs">Bara 5 minuters promenad från Strömparken och Spårvagnshållplats Väster tull.</p>
+                </div>
+                <div class="pt-space-md">
+                  <a
+                    class="inline-flex items-center gap-1 font-label-md text-[12px] uppercase tracking-wider text-primary hover:underline font-semibold"
+                    href="https://maps.google.com/?q=V%C3%A4stg%C3%B6tegatan+14+Norrk%C3%B6ping"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <span>Öppna i Google Maps</span>
+                    <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Card: Bekvämligheter -->
+              <div class="p-space-lg bg-surface-container-low rounded-lg flex flex-col justify-between border border-outline-variant/20">
+                <div class="space-y-space-xs">
+                  <div class="flex items-center gap-space-xs text-secondary">
+                    <span class="material-symbols-outlined">deck</span>
+                    <span class="font-title-md text-[17px] font-semibold text-on-surface">Kaféupplevelsen</span>
+                  </div>
+                  <ul class="space-y-2 font-body-sm text-[13px] text-on-surface-variant">
+                    <li class="flex items-center gap-space-xs">
+                      <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                      <span>Solig uteservering mot strömfåran</span>
+                    </li>
+                    <li class="flex items-center gap-space-xs">
+                      <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                      <span>Hundvänligt inne &amp; ute</span>
+                    </li>
+                    <li class="flex items-center gap-space-xs">
+                      <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                      <span>Barnvagnsvänlig ramp &amp; toalett</span>
+                    </li>
+                    <li class="flex items-center gap-space-xs">
+                      <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                      <span>Hantverksbryggt kaffe &amp; te</span>
+                    </li>
+                  </ul>
+                </div>
+                <p class="font-label-sm text-[12px] text-secondary pt-space-md font-semibold">Öppet tisdag–söndag</p>
+              </div>
+            </div>
+
+            <!-- Location Map View Mockup using direct image link -->
+            <div
+              class="w-full h-56 bg-cover bg-center rounded-lg shadow-sm relative overflow-hidden flex items-end p-space-md border border-outline-variant/30 group"
+              data-alt="Karta över Gamla Staden och Motala ström i Norrköping med en elegant markör för bageriets läge vid tegelbyggnaderna"
+              data-location="Västgötegatan 14, Norrköping, Sweden"
+              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCH2JGmnVq6wVqgEmFL6WuNARQvrWCXxPLj_fklyeSSDI6oz9QdTOolMETFu3Vo2lLLONdBwE-zCr9r-2qk8-p5XhjCtOH0tY2fEWvsVdF9Fvsyj_448VYPbDd0-YuYrnxIyYobKsNm4WTjes77mnRLQjxRKGYpOdB5FYNoYnTFCf25w6Scr_YiLofiSWqK5LNj8b_a7ZuGNHHSvZnTivrYTiynqcuPSMrgjYqRHV4C2u-GRKsdVSIUGQ')"
+            >
+              <div class="bg-surface/95 backdrop-blur-md px-space-md py-space-xs rounded flex items-center justify-between w-full text-on-surface text-body-sm text-[13px] shadow-sm border border-outline-variant/30">
+                <div class="flex items-center gap-space-xs">
+                  <span class="material-symbols-outlined text-primary text-[20px]">explore</span>
+                  <span class="font-medium">Kvarnholmen &amp; Industrilandskapet, Motala Ström</span>
+                </div>
+                <a href="https://maps.google.com/?q=V%C3%A4stg%C3%B6tegatan+14+Norrk%C3%B6ping" target="_blank" rel="noopener noreferrer" class="text-xs text-primary font-semibold hover:underline flex items-center gap-0.5">
+                  Vägbeskrivning <span class="material-symbols-outlined text-[14px]">directions</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Helgbeställning (Pre-Order Form Box) -->
+          <div class="lg:col-span-5" id="bestallning">
+            <div class="bg-surface-container p-space-xl rounded-xl shadow-md flex flex-col gap-space-md border border-outline-variant/30">
+              <div class="space-y-space-xxs">
+                <div class="inline-flex items-center gap-space-xs px-space-xs py-space-xxs rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[11px] uppercase font-bold tracking-wider">
+                  <span class="material-symbols-outlined text-[14px]">event_available</span>
+                  <span>Säkra Helgbrödet</span>
+                </div>
+                <h3 class="font-headline-md text-[26px] text-on-surface font-display font-medium">Beställ till helgen</h3>
+                <p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">
+                  Vill du vara säker på att få din Levain eller kardemummabullar? Beställ senast torsdag kl 16:00 för smidig hämtning fredag–söndag.
+                </p>
+              </div>
+
+              <!-- Interactive Order Form with Feedback -->
+              <form
+                class="space-y-space-sm"
+                id="order-form"
+                onsubmit="handleOrderSubmit(event)"
+              >
+                <div>
+                  <label class="block font-label-md text-[12px] font-semibold text-on-surface mb-1" for="kund-namn">Ditt Namn</label>
+                  <input
+                    class="w-full px-space-sm py-space-xs rounded bg-surface text-on-surface font-body-md text-[14px] focus:outline-none focus:ring-2 focus:ring-primary shadow-xs border border-outline-variant/30"
+                    id="kund-namn"
+                    placeholder="t.ex. Anna Lindgren"
+                    required
+                    type="text"
+                  />
+                </div>
+
+                <div class="grid grid-cols-2 gap-space-sm">
+                  <div>
+                    <label class="block font-label-md text-[12px] font-semibold text-on-surface mb-1" for="kund-telefon">Telefonnummer</label>
+                    <input
+                      class="w-full px-space-sm py-space-xs rounded bg-surface text-on-surface font-body-md text-[14px] focus:outline-none focus:ring-2 focus:ring-primary shadow-xs border border-outline-variant/30"
+                      id="kund-telefon"
+                      placeholder="070-123 45 67"
+                      required
+                      type="tel"
+                    />
+                  </div>
+                  <div>
+                    <label class="block font-label-md text-[12px] font-semibold text-on-surface mb-1" for="hamtning-dag">Hämtningsdag</label>
+                    <select
+                      class="w-full px-space-sm py-space-xs rounded bg-surface text-on-surface font-body-md text-[14px] focus:outline-none focus:ring-2 focus:ring-primary shadow-xs border border-outline-variant/30"
+                      id="hamtning-dag"
+                    >
+                      <option value="Fredag (12–18)">Fredag (12–18)</option>
+                      <option value="Lördag (08–16)">Lördag (08–16)</option>
+                      <option value="Söndag (08–16)">Söndag (08–16)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <label class="block font-label-md text-[12px] font-semibold text-on-surface" for="valda-bakverk">Vad vill du beställa?</label>
+                    <span class="text-[11px] text-outline font-medium">Tips: klicka "+" på bröden</span>
+                  </div>
+                  <textarea
+                    class="w-full px-space-sm py-space-xs rounded bg-surface text-on-surface font-body-md text-[14px] focus:outline-none focus:ring-2 focus:ring-primary shadow-xs border border-outline-variant/30"
+                    id="valda-bakverk"
+                    placeholder="T.ex. 2 st Strömmen Levain, 4 st Kardemummabullar"
+                    required
+                    rows="3"
+                  ></textarea>
+                </div>
+
+                <div class="flex items-start gap-space-xs pt-space-xxs">
+                  <input
+                    checked
+                    class="mt-1 accent-primary h-4 w-4 rounded cursor-pointer"
+                    id="sms-bekraftelse"
+                    type="checkbox"
+                  />
+                  <label class="font-body-sm text-[13px] text-on-surface-variant cursor-pointer" for="sms-bekraftelse">
+                    Skicka bekräftelse &amp; betalningsinfo via Swish på SMS
+                  </label>
+                </div>
+
+                <button
+                  class="w-full py-space-sm bg-primary hover:bg-primary-container text-on-primary font-label-md text-[13px] uppercase tracking-wider rounded transition-colors shadow-sm flex items-center justify-center gap-space-xs mt-space-sm cursor-pointer"
+                  type="submit"
+                >
+                  <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+                  <span>Skicka Helgbeställning</span>
+                </button>
+                <p class="font-label-sm text-[11px] text-center text-outline">Betala med Swish eller kort vid uthämtning.</p>
+              </form>
+
+              <!-- Success State Message -->
+              <div
+                class="hidden p-space-lg bg-surface rounded-lg text-center space-y-space-sm animate-fade-in border border-outline-variant/20 shadow-sm"
+                id="order-confirmation"
+              >
+                <div class="w-12 h-12 mx-auto rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+                  <span class="material-symbols-outlined text-[24px]">check</span>
+                </div>
+                <h4 class="font-headline-sm text-[22px] text-on-surface font-display font-semibold">Tack för din beställning!</h4>
+                <p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed" id="confirmation-details">
+                  Vi har tagit emot din önskan. En bagare granskar och skickar en bekräftelse på SMS inom kort. Varmt välkommen på vald dag!
+                </p>
+                <button
+                  class="font-label-md text-[13px] text-primary underline pt-space-xs hover:text-primary-container cursor-pointer block mx-auto"
+                  onclick="resetOrderForm()"
+                >
+                  Gör en ny beställning
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- Community / Instagram Grid Strip -->
+    <section class="w-full bg-surface-container-high py-space-2xl px-margin-mobile md:px-margin-tablet lg:px-margin-desktop border-t border-outline-variant/20">
+      <div class="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-space-lg">
+        <div class="space-y-space-xxs text-center md:text-left">
+          <span class="font-label-md text-[12px] uppercase tracking-wider text-secondary font-semibold">Följ Livet i Bageriet</span>
+          <h3 class="font-headline-md text-[26px] md:text-[30px] text-on-surface font-display font-medium">Doften sprider sig över Motala ström.</h3>
+          <p class="font-body-md text-[14px] text-on-surface-variant">Tagga dina frukoststunder med <strong class="text-on-surface font-semibold">#BageriStrömmen</strong> eller följ oss för dagliga infall.</p>
+        </div>
+        <div class="flex items-center gap-space-sm flex-wrap justify-center">
+          <div class="flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface text-on-surface font-label-md text-[13px] shadow-xs border border-outline-variant/20">
+            <span class="material-symbols-outlined text-primary text-[20px]">star</span>
+            <span class="font-semibold">4.9 i gästbetyg</span>
+          </div>
+          <a
+            class="px-space-md py-space-xs rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-[13px] transition-colors flex items-center gap-space-xs shadow-xs"
+            href="https://instagram.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+            <span>Instagram @bageristrommen</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="w-full bg-surface-container-low border-t border-outline-variant/20">
+    <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop pt-space-3xl pb-space-2xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-2xl">
+        
+        <div class="space-y-space-md">
+          <span class="font-headline-md text-[26px] text-primary block font-display font-medium">Bageri Strömmen</span>
+          <p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">
+            Ett hantverksbageri förankrat i Norrköpings industriella själ. Långjäst surdeg, kulturspannmål och stillsam svensk fikakultur intill Strömmens porlande vatten.
+          </p>
+          <p class="font-label-sm text-[11px] uppercase text-secondary font-bold tracking-wider">Kulturarv &amp; Mjölnarkonst sedan 1912</p>
+        </div>
+
+        <div class="space-y-space-sm">
+          <h3 class="font-title-md text-[16px] text-on-surface font-semibold">Öppettider</h3>
+          <div class="font-body-md text-[14px] text-on-surface-variant space-y-space-xxs">
+            <p><span class="font-semibold text-on-surface">Tisdag – Fredag:</span> 07:00 – 18:00</p>
+            <p><span class="font-semibold text-on-surface">Lördag – Söndag:</span> 08:00 – 16:00</p>
+            <p class="text-outline pt-space-xxs font-label-sm text-[11px]">Måndagar stängt för degvila &amp; skållning</p>
+          </div>
+        </div>
+
+        <div class="space-y-space-sm">
+          <h3 class="font-title-md text-[16px] text-on-surface font-semibold">Hitta Till Oss</h3>
+          <div class="font-body-md text-[14px] text-on-surface-variant space-y-space-xxs">
+            <p>Gamla Staden / Industrilandskapet</p>
+            <p>Västgötegatan 14</p>
+            <p>602 21 Norrköping</p>
+            <p class="pt-space-xs">
+              <a class="hover:text-primary transition-colors font-medium" href="tel:+4611123456">011-12 34 56</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-space-md">
+          <h3 class="font-title-md text-[16px] text-on-surface font-semibold">Gemenskap</h3>
+          <p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">
+            Följ morgonbaket, ugnsschemat och säsongens bullar på Instagram.
+          </p>
+          <div class="pt-space-xxs">
+            <a
+              class="inline-flex items-center gap-space-xs font-label-md text-[13px] text-primary hover:text-primary-container transition-colors font-semibold"
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="material-symbols-outlined text-[20px]">photo_camera</span>
+              <span>@bageristrommen</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-space-3xl pt-space-lg border-t border-outline-variant/30 flex flex-col md:flex-row items-center justify-between gap-space-sm font-body-sm text-[13px] text-on-surface-variant">
+        <p>© 2025 Bageri Strömmen HB. Hantverksbakat med kärlek i Norrköping.</p>
+        <div class="flex items-center gap-space-lg font-label-sm text-[11px] uppercase tracking-wider font-semibold">
+          <a class="hover:text-on-surface transition-colors" href="#" onclick="event.preventDefault(); alert('Integritetspolicy: Bageri Strömmen sparar endast ditt telefonnummer under aktiv orderhantering och delar aldrig uppgifter med tredje part.');">Integritet</a>
+          <a class="hover:text-on-surface transition-colors" href="#" onclick="event.preventDefault(); alert('Beställningsvillkor: Förbeställningar hämtas i bageriet under angivet klockslag. Betalning sker vid hämtning via Swish eller kort.');">Beställningsvillkor</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= FLOATING TOAST NOTIFICATION ================= -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-lg shadow-xl text-sm font-medium flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <span class="material-symbols-outlined text-secondary-fixed text-[20px]">check_circle</span>
+    <span id="toast-message">Bröd tillagt</span>
+  </div>
+
+  <!-- ================= ABOUT BAKER MODAL ================= -->
+  <div id="baker-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs hidden items-center justify-center p-4">
+    <div class="bg-surface max-w-md w-full rounded-xl p-6 shadow-2xl border border-outline-variant/30 space-y-4 animate-fade-in">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center gap-2 text-primary font-display text-xl font-medium">
+          <span class="material-symbols-outlined">bakery_dining</span>
+          <span>Om Bageri Strömmen</span>
+        </div>
+        <button onclick="closeBakerInfoModal()" class="text-outline hover:text-on-surface p-1">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <p class="text-sm text-on-surface-variant leading-relaxed">
+        Vi grundades i det gamla kvarnkvarteret vid Motala ström. Varje bröd knådas för hand med kulturspannmål från östgötska ekobönder, och vår surdeg har hållits vid liv i över ett decennium.
+      </p>
+      <div class="p-3 bg-surface-container-low rounded-lg text-xs space-y-1 text-on-surface">
+        <div class="font-semibold">Mästerbagare: Jonas &amp; Elin Bergström</div>
+        <div class="text-on-surface-variant">Stenhällsugn: Eldfast tysk chamotte, 260°C</div>
+        <div class="text-on-surface-variant">Kvarnsten: Svensk granit från Älvdalen</div>
+      </div>
+      <button onclick="closeBakerInfoModal()" class="w-full py-2 bg-primary text-white rounded text-xs uppercase tracking-wider font-semibold hover:bg-primary-container">
+        Stäng
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= VANILLA JAVASCRIPT LOGIC ================= -->
+  <script>
+    // State
+    let currentViewMode = 'scroll'; // 'scroll' or 'tabs'
+    let orderItems = [];
+
+    // Screen navigation
+    function navigateToScreen(screenId, event) {
+      if (event) event.preventDefault();
+
+      // Update active nav style
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('data-screen') === screenId) {
+          link.classList.add('active');
+        }
+      });
+
+      if (currentViewMode === 'tabs') {
+        // In tabs mode, show only the selected screen
+        document.querySelectorAll('.screen-view').forEach(screen => {
+          screen.classList.add('hidden');
+        });
+        const targetScreen = document.getElementById('screen-' + screenId);
+        if (targetScreen) {
+          targetScreen.classList.remove('hidden');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      } else {
+        // In scroll mode, smooth scroll to the target anchor
+        const targetElement = document.getElementById(screenId);
+        if (targetElement) {
+          const yOffset = -90;
+          const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        } else if (screenId === 'hem') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+    }
+
+    // Toggle view mode between full scroll & single screen views
+    function setViewMode(mode) {
+      currentViewMode = mode;
+      const fullBtn = document.getElementById('view-mode-full');
+      const screenBtn = document.getElementById('view-mode-screen');
+
+      if (mode === 'tabs') {
+        if (fullBtn && screenBtn) {
+          fullBtn.className = 'px-2.5 py-1 rounded-full text-on-surface-variant hover:text-on-surface';
+          screenBtn.className = 'px-2.5 py-1 rounded-full bg-surface text-primary font-semibold shadow-xs';
+        }
+        // Activate current active link screen
+        const activeLink = document.querySelector('.nav-link.active');
+        const activeScreen = activeLink ? activeLink.getAttribute('data-screen') : 'hem';
+        document.querySelectorAll('.screen-view').forEach(screen => {
+          screen.classList.add('hidden');
+        });
+        const target = document.getElementById('screen-' + activeScreen);
+        if (target) target.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        showToast('Skärmläge aktiverat: Visar en sektion i taget');
+      } else {
+        if (fullBtn && screenBtn) {
+          fullBtn.className = 'px-2.5 py-1 rounded-full bg-surface text-primary font-semibold shadow-xs';
+          screenBtn.className = 'px-2.5 py-1 rounded-full text-on-surface-variant hover:text-on-surface';
+        }
+        document.querySelectorAll('.screen-view').forEach(screen => {
+          screen.classList.remove('hidden');
+        });
+        showToast('Fullständigt läge aktiverat: Bläddra genom hela bageriet');
+      }
+    }
+
+    // Filter Bakery Menu
+    function filterBakeryMenu(category, button) {
+      document.querySelectorAll('.menu-filter-btn').forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-on-primary', 'font-semibold');
+        btn.classList.add('bg-surface-container-low', 'text-on-surface');
+      });
+      button.classList.remove('bg-surface-container-low', 'text-on-surface');
+      button.classList.add('bg-primary', 'text-on-primary', 'font-semibold');
+
+      const cards = document.querySelectorAll('.menu-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Add item to Helgbeställning
+    function addToHelgOrder(name, price) {
+      orderItems.push({ name, price });
+      updateOrderTextarea();
+      updateBadge();
+      showToast(`${name} (${price} kr) lades till i helgbeställningen`);
+    }
+
+    function updateOrderTextarea() {
+      const textarea = document.getElementById('valda-bakverk');
+      if (!textarea) return;
+
+      // Group counts
+      const counts = {};
+      orderItems.forEach(item => {
+        counts[item.name] = (counts[item.name] || 0) + 1;
+      });
+
+      const lines = Object.entries(counts).map(([name, count]) => `${count} st ${name}`);
+      textarea.value = lines.join(', ');
+    }
+
+    function updateBadge() {
+      const badge = document.getElementById('order-count-badge');
+      if (!badge) return;
+      if (orderItems.length > 0) {
+        badge.textContent = orderItems.length;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+
+    // Open Pre-order from anywhere
+    function openOrderModal() {
+      if (currentViewMode === 'tabs') {
+        navigateToScreen('hitta-hit');
+      } else {
+        const orderSection = document.getElementById('bestallning');
+        if (orderSection) {
+          orderSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      setTimeout(() => {
+        const nameInput = document.getElementById('kund-namn');
+        if (nameInput) nameInput.focus();
+      }, 400);
+    }
+
+    // Handle Order Submit
+    function handleOrderSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('kund-namn').value;
+      const tel = document.getElementById('kund-telefon').value;
+      const day = document.getElementById('hamtning-dag').value;
+      const items = document.getElementById('valda-bakverk').value;
+
+      const detailsEl = document.getElementById('confirmation-details');
+      if (detailsEl) {
+        detailsEl.innerHTML = `Tack <strong>${escapeHtml(name)}</strong>! Din beställning (<em>${escapeHtml(items)}</em>) är noterad för avhämtning på <strong>${escapeHtml(day)}</strong>. En bekräftelse med Swish-info skickas till <strong>${escapeHtml(tel)}</strong>.`;
+      }
+
+      document.getElementById('order-form').classList.add('hidden');
+      document.getElementById('order-confirmation').classList.remove('hidden');
+      showToast('Beställningen har mottagits!');
+    }
+
+    function resetOrderForm() {
+      document.getElementById('order-form').reset();
+      orderItems = [];
+      updateBadge();
+      document.getElementById('order-confirmation').classList.add('hidden');
+      document.getElementById('order-form').classList.remove('hidden');
+    }
+
+    // Escape HTML helper
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-drawer');
+      if (drawer) {
+        drawer.classList.toggle('hidden');
+      }
+    }
+
+    // About modal
+    function showBakerInfoModal() {
+      const modal = document.getElementById('baker-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeBakerInfoModal() {
+      const modal = document.getElementById('baker-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    // Toast notification
+    let toastTimeout = null;
+    function showToast(message) {
+      const toast = document.getElementById('toast-notification');
+      const msgEl = document.getElementById('toast-message');
+      if (!toast || !msgEl) return;
+
+      msgEl.textContent = message;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3000);
+    }
+
+    // Scroll spy for navigation highlighting in scroll mode
+    window.addEventListener('scroll', () => {
+      if (currentViewMode === 'tabs') return;
+
+      const sections = [
+        { id: 'screen-hem', nav: 'hem' },
+        { id: 'brod-fika', nav: 'brod-fika' },
+        { id: 'ugnsschema', nav: 'ugnsschema' },
+        { id: 'hitta-hit', nav: 'hitta-hit' }
+      ];
+
+      const scrollPos = window.scrollY + 160;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i].id);
+        if (el && el.offsetTop <= scrollPos) {
+          document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('data-screen') === sections[i].nav) {
+              link.classList.add('active');
+            }
+          });
+          break;
+        }
+      }
+    });
+
+    // Dynamic Live Oven schedule time sync
+    function updateOvenScheduleIndicator() {
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      const timeInMins = hours * 60 + minutes;
+
+      const indicator = document.getElementById('current-bake-indicator');
+      const ribbonText = document.getElementById('live-ribbon-text');
+      if (!indicator) return;
+
+      if (timeInMins < 7 * 60) {
+        indicator.textContent = "Förvärmning & deghantering inför 07:00-baket";
+        if (ribbonText) ribbonText.textContent = "Ugnen tänds kl 05:00 • Första surdegsbröden gräddas kl 07:00";
+      } else if (timeInMins < 8 * 60 + 30) {
+        indicator.textContent = "07:00 Morgonfrallor & Croissanter färska ur ugnen";
+        if (ribbonText) ribbonText.textContent = "Nybakade frallor och croissanter redo för frukost!";
+      } else if (timeInMins < 10 * 60) {
+        indicator.textContent = "08:30 Strömmen Levain & Rågbröd lyfts från hällen";
+        if (ribbonText) ribbonText.textContent = "Strömmen Levain (36 timmars kalljäsning) rykande färskt";
+      } else if (timeInMins < 11 * 60 + 30) {
+        indicator.textContent = "10:00 Kardemummabullar & Kanelbullar sprider frukostdoft";
+        if (ribbonText) ribbonText.textContent = "Kardemummabullar och kanelbullar varma från stenugnen!";
+      } else {
+        indicator.textContent = "11:30 Surdegspizza i bit & danska rågsmörrebröd";
+        if (ribbonText) ribbonText.textContent = "Lunchservering: Surdegspizza & rustika rågsmörrebröd";
+      }
+    }
+    updateOvenScheduleIndicator();
+    setInterval(updateOvenScheduleIndicator, 60000);
+  </script>
+</body>
+</html>
